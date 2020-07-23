@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   match 'about' => 'about#show', :via => :get
-  
+
   resources :products, only: %i[index show]
   resources :categories, only: [:show]
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: %i[edit update show]
+    resources :categories, only: %i[index new create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

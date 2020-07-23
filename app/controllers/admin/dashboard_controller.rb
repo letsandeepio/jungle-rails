@@ -7,4 +7,6 @@ class Admin::DashboardController < ApplicationController
     @product_count = Product.all.count
     @category_count = Category.all.count
   end
+
+  def index; end
 end
