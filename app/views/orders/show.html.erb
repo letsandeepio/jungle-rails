@@ -5,7 +5,8 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Congratulations! Your order for <%= pluralize(@order.line_items.length,"item") %> have been placed successfuly. <br>A confirmation email have been sent to <%= @order.email %>.</h4>
+    <h3>Order Summary</h3>
     <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -26,7 +27,7 @@
       <tfoot>
         <tr>
           <th colspan="4">
-            TOTAL:
+            Order total
           </th>
           <th>
             <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
