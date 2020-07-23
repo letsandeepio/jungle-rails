@@ -1,10 +1,10 @@
 // Vendor
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
 
 // App
-@import "products";
+@import 'products';
 
 // Global
 body {
@@ -14,4 +14,19 @@ body {
 // Bootstrap adjustments
 form.button_to {
   display: inline;
+}
+
+.navbar_item {
+  font-size: 14px;
+  list-style: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  line-height: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #777;
 }
