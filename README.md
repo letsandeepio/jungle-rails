@@ -1,8 +1,8 @@
 # Project Introduction
 
-Jungle is mini e-commerce application for selling products online. It allows visitor to visit the site to see all products, view product details and add them to a cart. User is able to view the cart contents before checking out using credit card using Stripe Payment API. User is also able to view the Order Summary after order is placed. Copy of the order reciept is emailed directly to the user using MailGun mailer api. User can register & login to save order history.
+Jungle is mini e-commerce application for selling products online. It allows visitor to visit the site to see all products, view indivdual product details and add them to a cart. User is able to view the cart contents before checking out using credit card through Stripe Payment API. User is also able to view the Order Summary after order is placed. Copy of the order reciept is emailed directly to the user using MailGun mailer api. User can also register & login to save order history.
 
-Administrators are able to login and create new products, categories etc along with the dashboard etc.
+Administrators are able to login and create new products, categories etc along with option to view dashboard etc.
 
 Screenshots
 
@@ -31,7 +31,7 @@ Screenshots
 5. Create .env file based on .env.example
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
-8. Sign up for a mailgun accout
+8. Sign up for a mailgun account
 9. Put Mailgun keys into appropriate .env vars
 10. Run `bin/rails s -b 0.0.0.0` to start the server
 
