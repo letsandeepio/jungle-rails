@@ -16,7 +16,7 @@ RSpec.feature 'User can login', type: :feature, js: true do
     fill_in 'email', with: 'sandeep.chopra@live.com'
     fill_in 'password', with: 'warlord420'
     click_on 'Sign in'
-    expect(page).to have_content('Sign out')
+    expect(page).to have_content('Logout')
     save_screenshot
   end
 end
