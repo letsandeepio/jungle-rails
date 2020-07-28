@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   describe 'Validations' do
     subject do
       described_class.new(name: 'Sandeep Chopra',
-                          email: 'sandeep.chopra@live.com',
+                          email: 'xyz@yahoo.com',
                           password: 'warlord420',
                           password_confirmation: 'warlord420')
     end
@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
 
       duplicate_user = User.new(
         name: 'Sandeep Chopra',
-        email: 'sandeep.chopra@live.com',
+        email: 'xyz@yahoo.com',
         password: 'warlord420',
         password_confirmation: 'warlord420'
       )
@@ -59,19 +59,19 @@ RSpec.describe User, type: :model do
       it 'returns the user object if the user is authenticated' do
         subject.save
         # puts subject.inspect
-        user = User.authenticate_with_credentials('sandeep.chopra@live.com', 'warlord420')
+        user = User.authenticate_with_credentials('xyz@yahoo.com', 'warlord420')
         expect(user).to be_instance_of(User)
       end
 
       it 'saves with spaces around the email' do
         subject.save
-        user = User.authenticate_with_credentials('  sandeep.chopra@live.com ', 'warlord420')
+        user = User.authenticate_with_credentials('  xyz@yahoo.com ', 'warlord420')
         expect(user).to be_instance_of(User)
       end
 
       it 'saves if the email has caps' do
         subject.save
-        user = User.authenticate_with_credentials('SANDEEP.CHOPRA@live.com ', 'warlord420')
+        user = User.authenticate_with_credentials('xyz@yahoo.com ', 'warlord420')
         expect(user).to be_instance_of(User)
       end
     end

@@ -14,7 +14,7 @@ class EmailReceipt < ActionMailer::Base
     puts html
     # Define your message parameters
     message_params = { from: ENV['MAIL_GUN_SENDER'],
-                       to: 'sandeep.chopra@live.com',
+                       to: 'xyz@yahoo.com',
                        subject: "Jungle.com - Order #{order.id} cofirmed successfully!",
                        html: html }
 
