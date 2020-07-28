@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
       expect(subject).to be_invalid
     end
 
-     it 'its invalid without a password' do
+    it 'its invalid without a password' do
       subject.password = nil
       expect(subject).to be_invalid
     end
@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
     it 'its invalid if password & confirmation do not match' do
       subject.password_confirmation = 'war'
       expect(subject).to be_invalid
-      puts subject.errors.full_messages
+      # puts subject.errors.full_messages
     end
 
     it 'its invalid if emails already exists' do
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
         password_confirmation: 'warlord420'
       )
       expect(duplicate_user).to be_invalid
-      puts duplicate_user.errors.full_messages
+      # puts duplicate_user.errors.full_messages
     end
 
     it 'its invalid if password length is less than 10 characters' do
@@ -54,9 +54,26 @@ RSpec.describe User, type: :model do
       subject.password_confirmation = 'war'
       expect(subject).to be_invalid
     end
-  end
 
-  describe '.authenticate_with_credentials' do
-    # examples for this class method here
+    describe '.authenticate_with_credentials' do
+      it 'returns the user object if the user is authenticated' do
+        subject.save
+        # puts subject.inspect
+        user = User.authenticate_with_credentials('sandeep.chopra@live.com', 'warlord420')
+        expect(user).to be_instance_of(User)
+      end
+
+      it 'saves with spaces around the email' do
+        subject.save
+        user = User.authenticate_with_credentials('  sandeep.chopra@live.com ', 'warlord420')
+        expect(user).to be_instance_of(User)
+      end
+
+      it 'saves if the email has caps' do
+        subject.save
+        user = User.authenticate_with_credentials('SANDEEP.CHOPRA@live.com ', 'warlord420')
+        expect(user).to be_instance_of(User)
+      end
+    end
   end
 end
